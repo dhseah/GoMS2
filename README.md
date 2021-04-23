@@ -1,3 +1,3 @@
 # GoMS2
 
-Hello!
+Hello world!
