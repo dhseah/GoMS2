@@ -34,5 +34,6 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action@v1.5
         with:
           files: report.xml
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
         
 
