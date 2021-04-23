@@ -27,4 +27,4 @@ jobs:
       - if: ${{success}}
         name: Test Goblin
         run: |
-          go test ./fib -v
+          go test ./fib -v | go2xunit >report.xml
