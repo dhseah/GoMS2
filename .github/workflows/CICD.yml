@@ -28,7 +28,7 @@ jobs:
       - if: ${{success()}}
         name: Test Goblin
         run: |
-          go test ./fib -v | go2xunit >report.xml
+          go test -v | go2xunit >report.xml
       - if: ${{success()}}
         name: Display test information
         uses: EnricoMi/publish-unit-test-result-action@v1.5
