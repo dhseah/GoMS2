@@ -17,19 +17,22 @@ jobs:
       - name: Go Version Check
         run: |
           go version
-          
-      - name: Install publish unit test
-        uses: EnricoMi/publish-unit-test-result-action@v1.5
-        
+       
       - name: Install dependencies
         run: |
           go get github.com/tebeka/go2xunit
-      - if: ${{ success }}
+      - if: ${{success()}}
         name: Install Goblin
         run: |
           go get github.com/franela/goblin
-      - if: ${{ success }}
+      - if: ${{success()}}
         name: Test Goblin
         run: |
           go test ./fib -v | go2xunit >report.xml
+      - if: ${{success()}}
+        name: Display test information
+        uses: EnricoMi/publish-unit-test-result-action@v1.5
+        with:
+          files: report.xml
+        
 
